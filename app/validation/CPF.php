@@ -3,7 +3,6 @@
 namespace App\validation;
 
 class CPF {
-
         
     /**
      * Método responsável por verificar se um CPF é válido
@@ -24,9 +23,9 @@ class CPF {
         /* cálculo do dígito verificador (expressão base para o cálculo) */
         $cpfValidacao = substr($cpf, 0, 9);
 
-        /* verifica o primeiro dígito (posicão 10) */
+        /* verifica o primeiro dígito (posicão 10) e concatena com as outras nove posições */
         $cpfValidacao .= self::calcularDigitoVerificador($cpfValidacao);
-        /* verifica o segundo dígito (posicão 11) */
+        /* verifica o segundo dígito (posicão 11) e concatena com as outras dez posições */
         $cpfValidacao .= self::calcularDigitoVerificador($cpfValidacao);
 
         return $cpfValidacao == $cpf;
